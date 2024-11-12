@@ -41,10 +41,10 @@ The control plane's components make global decisions about the cluster (for exam
 
 **Functionality:** Controllers are responsible for noticing and responding when the actual state of the cluster does not match the desired state. Examples of controllers include: 
 
-&nbsp;&nbsp;&nbsp;&nbsp;**<h3>Node Controller:</h3>** Responsible for noticing and responding when nodes go down. 
-&nbsp;&nbsp;&nbsp;&nbsp;**<h3>Replication Controller:</h3>** Responsible for maintaining the correct number of pods for every replication controller object in the system.
-&nbsp;&nbsp;&nbsp;&nbsp;**<h3>Endpoints Controller:</h3>** Populates the Endpoints object (i.e., joins Services & Pods).
-&nbsp;&nbsp;&nbsp;&nbsp;**<h3>Service Account & Token Controllers:</h3>** Create default accounts and API access tokens for new namespaces.
+&nbsp;&nbsp;&nbsp;&nbsp;**Node Controller:** Responsible for noticing and responding when nodes go down. 
+&nbsp;&nbsp;&nbsp;&nbsp;**Replication Controller:** Responsible for maintaining the correct number of pods for every replication controller object in the system.
+&nbsp;&nbsp;&nbsp;&nbsp;**Endpoints Controller:** Populates the Endpoints object (i.e., joins Services & Pods).
+&nbsp;&nbsp;&nbsp;&nbsp;**Service Account & Token Controllers:** Create default accounts and API access tokens for new namespaces.
 
 **Data Stores:** Controllers communicate with the API server to obtain the cluster state and make necessary adjustments to reach the desired state. 
 
@@ -54,9 +54,9 @@ The control plane's components make global decisions about the cluster (for exam
 
 **Functionality:** It includes cloud-specific control loops that integrate with the cloud provider’s API to manage cloud resources. It has controllers for managing nodes, routes, and load balancers. 
 
-&nbsp;&nbsp;&nbsp;&nbsp;**<h3>Node Controller:</h3>** Checks the cloud provider to determine if a node has been deleted in the cloud after it stops responding.
-&nbsp;&nbsp;&nbsp;&nbsp;**<h3>Route Controller:</h3>** For setting up routes in the underlying cloud infrastructure.
-&nbsp;&nbsp;&nbsp;&nbsp;**<h3>Service Controller:</h3>** For creating, updating, and deleting cloud provider load balancers.
+&nbsp;&nbsp;&nbsp;&nbsp;**Node Controller:** Checks the cloud provider to determine if a node has been deleted in the cloud after it stops responding.
+&nbsp;&nbsp;&nbsp;&nbsp;**Route Controller:** For setting up routes in the underlying cloud infrastructure.
+&nbsp;&nbsp;&nbsp;&nbsp;**Service Controller:** For creating, updating, and deleting cloud provider load balancers.
 
 **Data Stores:** It relies on the cloud provider’s API and the Kubernetes API server to obtain the cluster state and perform cloud-specific operations. 
 
