@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: nginx-replicaset
+spec:
+  replicas: 3
+  selector:
+    matchExpressions:
+      - key: app
+        operator: In
+        values: ["nginx"]
+      - key: environment
+        operator: NotIn
+        values: ["dev"]
+  template:
+    metadata:
+      labels:
+        app: nginx
+        environment: prod
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:latest
