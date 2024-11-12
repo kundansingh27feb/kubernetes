@@ -11,7 +11,7 @@ In production environments, the control plane usually runs across multiple compu
 
 The control plane's components make global decisions about the cluster (for example, scheduling), as well as detecting and responding to cluster events (for example, starting up a new pod when a Deployment's replicas field is unsatisfied). 
 
-#   A. kube-apiserver:
+##   A. kube-apiserver:
 
 **Purpose:** The API server is the central management entity that exposes the Kubernetes API. It is the front-end for the Kubernetes control plane. 
 
@@ -19,7 +19,7 @@ The control plane's components make global decisions about the cluster (for exam
 
 **Data Stores:** The kube-apiserver relies on etcd as the backend data store where the state of the cluster is persisted. 
 
-#   B. etcd:
+##   B. etcd:
 
 **Purpose:** etcd is a distributed key-value store used to store all cluster data. 
 
@@ -27,7 +27,7 @@ The control plane's components make global decisions about the cluster (for exam
 
 **Data Stores:** Itself is a distributed key-value store. It stores all the persistent data of the cluster. 
 
-#   C. kube-scheduler:
+##   C. kube-scheduler:
 
 **Purpose:** The scheduler is responsible for distributing workloads across the cluster. 
 
@@ -35,7 +35,7 @@ The control plane's components make global decisions about the cluster (for exam
 
 **Data Stores:** It uses the API server to get information about pods and nodes. 
 
-#   D. kube-controller-manager:
+##   D. kube-controller-manager:
 
 **Purpose:** The controller manager runs controller processes that regulate the state of the cluster. 
 
@@ -51,7 +51,7 @@ The control plane's components make global decisions about the cluster (for exam
 
 **Data Stores:** Controllers communicate with the API server to obtain the cluster state and make necessary adjustments to reach the desired state. 
 
-#   E. cloud-controller-manager:
+##   E. cloud-controller-manager:
 
 **Purpose:** The cloud-controller-manager allows Kubernetes to interact with the underlying cloud provider. 
 
@@ -70,8 +70,14 @@ The control plane's components make global decisions about the cluster (for exam
 
 Run on every node, maintaining running pods and providing the Kubernetes runtime environment:
 
-**kubelet:** Ensures that Pods are running, including their containers.
+## **kubelet:** 
 
-**kube-proxy:** Maintains network rules on nodes to implement Services.
+Ensures that Pods are running, including their containers.
 
-**Container runtime:** Software responsible for running containers.
+## **kube-proxy:** 
+
+Maintains network rules on nodes to implement Services.
+
+## **Container runtime:** 
+
+Software responsible for running containers.
