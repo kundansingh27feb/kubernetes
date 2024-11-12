@@ -38,12 +38,9 @@ Kubernetes Deployment is an abstraction that provides declarative updates to app
 `kubectl edit deployment nginx-deployment`
 
 ```
-spec: 
-
-  containers: 
-
-  - name: nginx 
-
+spec:
+  containers:
+  - name: nginx
     image: nginx:1.21.7
 ```
 
@@ -58,6 +55,7 @@ spec:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You will see the list of revisions. To roll back to a previous revision, use: 
 
 `kubectl rollout undo deployment/nginx-deployment --to-revision=<revision_number>`
+
 `kubectl rollout undo deployment/nginx-deployment --to-revision=1`  # To Particular Version
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you want to roll back to the previous state without specifying a revision:
@@ -67,11 +65,13 @@ spec:
 ## 4. Check Deployment Status
 
 `kubectl get deployments`
+
 `kubectl get pods`
 
 ## 5. View Rollout Status
 
 `kubectl rollout status deployment/nginx-deployment`
+
 `kubectl describe deployment nginx-deployment`
 
 <hr>
