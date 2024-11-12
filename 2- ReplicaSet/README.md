@@ -1,6 +1,6 @@
 # ReplicaSet
 
-ReplicaSet is a controller that manages and ensures the availability of a specified number of replicas of a particular pod. It helps in achieving high availability by automatically creating or deleting pod replicas as needed to maintain the desired count. This ensures that the application can handle loads and maintain service continuity in case of individual pod failures.  
+**ReplicaSet** is a controller that manages and ensures the availability of a specified number of replicas of a particular pod. It helps in achieving high availability by automatically creating or deleting pod replicas as needed to maintain the desired count. This ensures that the application can handle loads and maintain service continuity in case of individual pod failures.  
 
 ## Key Aspects of a ReplicaSet:
 
