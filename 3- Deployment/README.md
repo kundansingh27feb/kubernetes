@@ -27,15 +27,15 @@ Kubernetes Deployment is an abstraction that provides declarative updates to app
 
 ## 1. Apply the Deployment
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Save the above YAML to a file (e.g., nginx-deployment.yaml) and apply it:
+Save the above YAML to a file (e.g., nginx-deployment.yaml) and apply it:
 
-`kubectl apply -f nginx-deployment.yaml`
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`kubectl apply -f nginx-deployment.yaml`
 
 ## 2. Update the Deployment
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To update the Deployment, for example to a new version of the Nginx image, modify the image field in the YAML file:
+To update the Deployment, for example to a new version of the Nginx image, modify the image field in the YAML file:
 
-`kubectl edit deployment nginx-deployment`
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`kubectl edit deployment nginx-deployment`
 
 ```
 spec:
@@ -44,35 +44,35 @@ spec:
     image: nginx:1.21.7
 ```
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Save the YAML.
+Save the YAML.
 
 ## 3. Rollback the Deployment
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you need to roll back to the previous version, you can use the `kubectl rollout` command. First, check the rollout history:
+If you need to roll back to the previous version, you can use the `kubectl rollout` command. First, check the rollout history:
 
-`kubectl rollout history deployment/nginx-deployment`
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`kubectl rollout history deployment/nginx-deployment`
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You will see the list of revisions. To roll back to a previous revision, use: 
+You will see the list of revisions. To roll back to a previous revision, use: 
 
 `kubectl rollout undo deployment/nginx-deployment --to-revision=<revision_number>`
 
-`kubectl rollout undo deployment/nginx-deployment --to-revision=1`  # To Particular Version
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`kubectl rollout undo deployment/nginx-deployment --to-revision=1`  # Rollout To Particular Version
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you want to roll back to the previous state without specifying a revision:
+If you want to roll back to the previous state without specifying a revision:
 
-`kubectl rollout undo deployment/nginx-deployment`
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`kubectl rollout undo deployment/nginx-deployment`
 
 ## 4. Check Deployment Status
 
-`kubectl get deployments`
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`kubectl get deployments`
 
-`kubectl get pods`
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`kubectl get pods`
 
 ## 5. View Rollout Status
 
-`kubectl rollout status deployment/nginx-deployment`
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`kubectl rollout status deployment/nginx-deployment`
 
-`kubectl describe deployment nginx-deployment`
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`kubectl describe deployment nginx-deployment`
 
 <hr>
 
