@@ -34,13 +34,13 @@ spec:
         - containerPort: 80
 ```
 
-`**kubectl apply -f replicaset.yaml**`
+`kubectl apply -f replicaset.yaml`
 
-`**kubectl get replicaset**`
+`kubectl get replicaset`
 
-`**kubectl get pods -l app=my-app**`
+`kubectl get pods -l app=my-app`
 
-`**kubectl get pods –show-label**`
+`kubectl get pods –show-label`
 
 # MatchLabels And MatchExpressions
 
@@ -55,11 +55,9 @@ In Kubernetes, matchLabels and matchExpressions are used within selectors to def
 **Example:** If you specify matchLabels: { "app": "my-app" }, it will select all pods with a label app=my-app.
 
 ```
-selector: 
-
-  matchLabels: 
-
-    app: my-app 
+selector:
+  matchLabels:
+    app: my-app
 ```
 
 In this case, all pods with the label app=my-app will be managed by the resource (e.g., a ReplicaSet or Deployment) that defines this selector. 
@@ -78,22 +76,16 @@ In this case, all pods with the label app=my-app will be managed by the resource
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**DoesNotExist:** Selects resources that do not have a specified label key. 
 
+
 ```
-selector: 
-
-  matchExpressions: 
-
-    - key: app 
-
-      operator: In 
-
-      values: ["my-app", "other-app"] 
-
-    - key: environment 
-
-      operator: NotIn 
-
-      values: ["test"] 
+selector:
+  matchExpressions:
+    - key: app
+      operator: In
+      values: ["my-app", "other-app"]
+    - key: environment
+      operator: NotIn
+      values: ["test"]
 ```
 
 In this case:
