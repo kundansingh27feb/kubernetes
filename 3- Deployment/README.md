@@ -54,7 +54,7 @@ If you need to roll back to the previous version, you can use the `kubectl rollo
 
 You will see the list of revisions. To roll back to a previous revision, use: 
 
-`kubectl rollout undo deployment/nginx-deployment --to-revision=<revision_number>`
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`kubectl rollout undo deployment/nginx-deployment --to-revision=<revision_number>`
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`kubectl rollout undo deployment/nginx-deployment --to-revision=1`  # Rollout To Particular Version
 
