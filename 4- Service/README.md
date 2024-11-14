@@ -72,7 +72,7 @@ spec:
 
 **How it works:** This configuration provisions an external load balancer in Azure, which receives requests on port 80 and forwards them to port 8080 on the public-app pods. The load balancer is assigned a public IP, making it accessible from outside the cluster at http://<external-ip>:80.
 
-# 4. ExternalName Service
+## 4. ExternalName Service
 
 **Description:** An ExternalName service maps a Kubernetes service name to an external DNS name. It doesn’t create a proxy or expose any pods directly; instead, it allows applications inside the AKS cluster to access an external service using a DNS name.
 
