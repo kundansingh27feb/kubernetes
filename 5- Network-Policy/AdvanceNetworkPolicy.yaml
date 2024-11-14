@@ -1,0 +1,54 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: advanced-network-policy
+  namespace: default
+spec:
+  podSelector:
+    matchLabels:
+      app: my-app
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          role: backend
+    - namespaceSelector:
+        matchLabels:
+          team: dev-team
+    - ipBlock:
+        cidr: 192.168.1.0/24
+        except:
+          - 192.168.1.5/32
+    ports:
+    - protocol: TCP
+      port: 8080
+  egress:
+  - to:
+    - ipBlock:
+        cidr: 10.0.0.0/16
+    ports:
+    - protocol: TCP
+      port: 443
+    - protocol: UDP
+      port: 53
+
+# This policy allows traffic from specific IP blocks and namespaces while limiting access to only selected ports. It is configured for both ingress (inbound) and egress (outbound) traffic control.
+
+# Explanation:
+
+  # podSelector: Targets pods labeled app=my-app.
+  # policyTypes: Defines both Ingress and Egress rules.
+
+# ingress:
+  # Allows traffic from pods with role=backend in the same namespace.
+  # Allows traffic from namespaces labeled team=dev-team.
+  # Allows traffic from the IP range 192.168.1.0/24 but excludes the IP 192.168.1.5.
+  # Limiting incoming traffic to TCP port 8080.
+
+# egress:
+  # Limits outgoing traffic to the IP range 10.0.0.0/16.
+  # Restricts outgoing traffic to TCP port 443 (e.g., HTTPS) and UDP port 53 (e.g., DNS).
+  # These policies provide a foundation for securing inter-pod communication and restricting access based on IPs, namespaces, and ports.

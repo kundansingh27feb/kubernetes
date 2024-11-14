@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-frontend
+  namespace: default
+spec:
+  podSelector:
+    matchLabels:
+      role: frontend
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          role: frontend
+
+#This policy allows only pods within the same namespace that have the label role=frontend to communicate with each other, while blocking all other traffic.
+#podSelector: Selects pods labeled with role=frontend.
+#policyTypes: Specifies Ingress (inbound) policy.
+#ingress: Defines allowed traffic sources, restricting it to only pods with the role=frontend label.
