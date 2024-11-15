@@ -1,0 +1,25 @@
+name: Create Auto Pull Request(PR)
+on:
+  push:
+    branches:
+    - Development
+jobs:
+  create-pull-request:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout the repository
+      uses: actions/checkout@v3
+
+    - name: Set up Git
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+    
+    - name: create a Pull Request
+      uses: peter-evans/create-pull-request@v5
+      with:
+        title: "Auto PR to merge changes from ${{ github.ref }} into main"
+        body: "This PR was automatically created to merge changes from ${{ github.ref }} into main."
+        branch: ${{ github.ref }}  # This refers to the branch that triggered the action
+        base: main  # The target branch to merge into
+        token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
