@@ -20,6 +20,6 @@ jobs:
       with:
         title: "Auto PR to merge changes from ${{ github.ref }} into main"
         body: "This PR was automatically created to merge changes from ${{ github.ref }} into main."
-        branch: ${{ github.ref }}  # This refers to the branch that triggered the action
+        branch: ${{ github.ref }}  # This refers to the branch that triggered the action.
         base: main  # The target branch to merge into
         token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
