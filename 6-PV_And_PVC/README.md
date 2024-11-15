@@ -9,7 +9,9 @@ A Persistent Volume (PV) is a piece of storage provisioned by an administrator o
 **Characteristics:**
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Provisioned by an admin or automatically via a storage class.
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Represents a physical or logical storage resource.
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Can be backed by NFS, iSCSI, local disk, or other storage systems.
 
 Think of a Persistent Volume (PV) as a storage space that your Kubernetes cluster can use. It's like a folder on your hard drive or a shared drive that is set up and made available for applications to store data.
@@ -23,6 +25,7 @@ A Persistent Volume Claim (PVC) is a request for storage by a user. It specifies
 **Characteristics:**
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Acts as a consumer-facing abstraction over PVs.
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ensures the pod doesn't need to know the specifics of the storage backend.
 
 A Persistent Volume Claim (PVC) is like asking for some of that storage. It's a request from your application saying, "I need 5GB of space to save my files."
@@ -44,7 +47,9 @@ A Persistent Volume Claim (PVC) is like asking for some of that storage. It's a 
 **Imagine this scenario:**
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Your office has a shared storage room (like a PV).
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You submit a request form (like a PVC) to ask for some storage space.
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Once approved, you’re given access to a specific locker (the PV) to store your stuff.
 
 ## Example
@@ -73,6 +78,7 @@ spec:
 
 **capacity:** Specifies 10Gi of storage.
 
+
 **accessModes:** Access modes determine how a Persistent Volume (PV) can be accessed by pods. Think of it like deciding if a file or folder is read-only or writable, and whether multiple people can access it.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**1. ReadWriteMany:** Multiple pods can read from and write to this volume at the same time. Used when Applications need shared storage for collaboration.
@@ -81,7 +87,9 @@ spec:
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**3. ReadOnlyMany:** Multiple pods can read from this volume at the same time, but none can write to it. Used for Static content (e.g., configuration files or shared media that shouldn’t be changed).
 
+
 **nfs:** Defines the NFS server and path.
+
 
 **persistentVolumeReclaimPolicy:** The reclaim policy determines what happens to a Persistent Volume (PV) when its claim (PVC) is released or deleted.
 
