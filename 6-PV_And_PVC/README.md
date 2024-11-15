@@ -156,4 +156,4 @@ spec:
 2. Shared Storage: Multiple applications can share the same storage.
 
 3. Flexibility: Developers don’t need to know about the underlying storage; they just request what they need using PVCs.
-
+<hr>
