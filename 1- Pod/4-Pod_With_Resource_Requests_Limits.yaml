@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-with-resources
+spec:
+  containers:
+  - name: app-container
+    image: my-app:latest
+    env:
+    - name: ENVIRONMENT
+      value: production
+    - name: DEBUG
+      value: "false"
+    resources:
+      requests:
+        memory: "512Mi"
+        cpu: "500m"
+      limits:
+        memory: "1Gi"
+        cpu: "1"
