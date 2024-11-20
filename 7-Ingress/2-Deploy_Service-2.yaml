@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service 
+metadata:
+  name: activeMQ-Service
+  labels:
+    queue: activemq
+spec:
+  selector:
+    queue: activemq
+  ports:
+  - protocol: TCP
+    port: 8161
+    targetPort: 8161
+  type: ClusterIP
