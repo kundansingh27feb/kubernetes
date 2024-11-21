@@ -47,7 +47,7 @@ spec:
       nodePort: 30001
 ```
 
-**How it works:** The service is exposed on port 30001 on each node's IP address. Accessing http://<node-ip>:30001 will route traffic to the frontend application pods within the cluster.
+**How it works:** The service is exposed on port 30001 on each node's IP address. Accessing http://[node-ip]:30001 will route traffic to the frontend application pods within the cluster.
 
 ## 3. LoadBalancer Service
 
